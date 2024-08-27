@@ -70,7 +70,7 @@ export default function Navbar() {
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
-            href="#"
+            href="/login"
             className="text-sm font-semibold leading-6 text-gray-50 bg-blue-500 py-3 px-6 rounded-md"
           >
             Se connecter <span aria-hidden="true">&rarr;</span>

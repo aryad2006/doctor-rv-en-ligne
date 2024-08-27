@@ -1,5 +1,4 @@
 import LoginForm from "@/components/auth/LoginForm";
-import Image from "next/image";
 import React from "react";
 
 export default function page() {

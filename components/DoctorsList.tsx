@@ -66,29 +66,34 @@ export default function DoctorsList({
     },
   ];
   return (
-    <div className={className}>
-      <div className="max-w-6xl mx-auto">
-        <SectionHeading title={title} />
-        <div className="py-4 flex items-center justify-between">
-          {isInPerson ? (
+    <>
+      <div className={className}>
+        <div className="max-w-6xl mx-auto">
+          <SectionHeading title={title} />
+          <div className="py-4 flex items-center justify-between">
+            {isInPerson ? (
+              <Link
+                href=""
+                className="text-sm flex items-center text-blue-700 font-semibold"
+              >
+                <Map className="m-2 flex-shrink-0 w-4 h-4" />
+                <span>Voir Plan</span>
+              </Link>
+            ) : (
+              <ToggleButton />
+            )}
             <Link
-              href=""
-              className="text-sm flex items-center text-blue-700 font-semibold"
+              className="py-3 px-6 border border-blue-600 bg-white"
+              href="#"
             >
-              <Map className="m-2 flex-shrink-0 w-4 h-4" />
-              <span>Voir Plan</span>
+              Voir Plus
             </Link>
-          ) : (
-            <ToggleButton />
-          )}
-          <Link className="py-3 px-6 border border-blue-600 bg-white" href="#">
-            Voir Plus
-          </Link>
-        </div>
-        <div className="py-6">
-          <DoctorsListCarousel doctors={doctors} isInPerson={isInPerson} />
+          </div>
+          <div className="py-6">
+            <DoctorsListCarousel doctors={doctors} isInPerson={isInPerson} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
