@@ -6,9 +6,16 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { LoginInputProps } from "@/types/types";
 import SubmitButton from "../FormInputs/SubmitButton";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
+import { HiInformationCircle } from "react-icons/hi";
+import { Alert } from "flowbite-react";
 
 export default function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -16,7 +23,31 @@ export default function LoginForm() {
     formState: { errors },
   } = useForm<LoginInputProps>();
   async function onSubmit(data: LoginInputProps) {
-    console.log(data);
+    try {
+      setIsLoading(true);
+      console.log("Attempting to sign in with credentials:", data);
+      const loginData = await signIn("credentials", {
+        ...data,
+        redirect: false,
+      });
+      console.log("SignIn response:", loginData);
+      if (loginData?.error) {
+        setIsLoading(false);
+        toast.error("Erreur de connexion : vérifiez vos identifiants");
+        setShowNotification(true);
+      } else {
+        // Sign-in was successful
+        setShowNotification(false);
+        reset();
+        setIsLoading(false);
+        toast.success("Connexion réussie");
+        router.push("/dashboard");
+      }
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Erreur réseau:", error);
+      toast.error("Il semble que quelque chose ne va pas avec votre réseau");
+    }
   }
   return (
     <>
@@ -34,6 +65,12 @@ export default function LoginForm() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            {showNotification && (
+              <Alert color="failure" icon={HiInformationCircle}>
+                <span className="font-medium">Erreur de connexion !</span>{" "}
+                Veuillez vérifier vos identifiants
+              </Alert>
+            )}
             <TextInput
               label="Email"
               register={register}
@@ -86,6 +123,7 @@ export default function LoginForm() {
               href="/register"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
+              {" "}
               Inscrivez vous
             </Link>
           </p>

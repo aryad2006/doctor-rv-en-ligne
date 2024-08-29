@@ -74,3 +74,40 @@ export async function creerUser(formData: RegisterInputProps) {
     };
   }
 }
+
+export async function updateUserById(id: string) {
+  if (id) {
+    try {
+      const updateUser = await prismaClient.user.update({
+        where: {
+          id: parseInt(id),
+        },
+        data: {
+          isVerified: true,
+        },
+      });
+      return updateUser;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+  return null;
+}
+
+export async function getUserById(id: string) {
+  if (id) {
+    try {
+      const user = await prismaClient.user.findUnique({
+        where: {
+          id: parseInt(id),
+        },
+      });
+      return user;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+  return null;
+}
