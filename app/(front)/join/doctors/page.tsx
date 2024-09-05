@@ -153,16 +153,6 @@ export default function page() {
               dès aujourd'hui.
             </h2>
 
-            {/* <div className="py-6">
-              {steps.map((steps, i) => {
-                return (
-                  <p className="flex items-center gap-2" key={i}>
-                    <Check className="w-4 h-4 mr-2 flex-shrink-0 text-blue-500" />
-                    {steps}
-                  </p>
-                );
-              })}
-            </div> */}
             <div className="grid grid-cols-2 gap-4 py-6">
               {cards.map((card, i) => {
                 return (

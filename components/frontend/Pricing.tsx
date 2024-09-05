@@ -64,9 +64,9 @@ export default function Pricing() {
           </div>
         </div>
         <div className="mt-16 justify-center gap-6 sm:grid sm:grid-cols-2 sm:space-y-0 lg:grid-cols-3">
-          {plans.map((item, idx) => (
+          {plans.map((item, i) => (
             <div
-              key={idx}
+              key={i}
               className={`relative flex-1 flex items-stretch flex-col rounded-xl border-2 mt-6 sm:mt-0 ${
                 item.isMostPop ? "mt-10" : ""
               }`}
@@ -113,8 +113,8 @@ export default function Pricing() {
                 <li className="pb-2 text-gray-800 font-medium">
                   <p>Features</p>
                 </li>
-                {item.features.map((featureItem, idx) => (
-                  <li key={idx} className="flex items-center gap-5">
+                {item.features.map((featureItem, i) => (
+                  <li key={i} className="flex items-center gap-5">
                     <Check className="h-5 w-5 text-indigo-600 flex-shrink-0" />
                     {featureItem}
                   </li>
