@@ -8,9 +8,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Loader } from "lucide-react";
-// import { updateUserById } from "@/actions/users";
-import { Button } from "@/components/ui/button";
+
 import {
   Form,
   FormControl,
@@ -27,6 +25,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { updateUserById } from "@/actions/users";
+import SubmitButton from "../FormInputs/SubmitButton";
 
 const FormSchema = z.object({
   token: z.string().min(6, {
@@ -104,16 +103,20 @@ export default function VerifyTokenForm({
                   </InputOTPGroup>
                 </InputOTP>
               </FormControl>
-              <FormDescription>
+              {/* <FormDescription>
                 Veuillez saisir le code d'accès à 6 chiffres envoyé à votre
                 adresse e-mail.
-              </FormDescription>
+              </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <Button type="submit">Envoyer</Button>
+        <SubmitButton
+          title="Envoyer pour vérification"
+          isLoading={loading}
+          loadingTitle="Vérification en cours..."
+        />
       </form>
     </Form>
   );

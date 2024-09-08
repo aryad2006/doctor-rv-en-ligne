@@ -24,7 +24,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
-export default async function Sidebar() {
+export default function Sidebar() {
   const pathname = usePathname();
   const sideBarLinks = [
     {

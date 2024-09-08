@@ -1,6 +1,7 @@
 import SearchBar from "@/components/frontend/SearchBar";
 import TransitionalText from "@/components/frontend/TransitionText";
 import { Pill } from "lucide-react";
+import CommandMenu from "../command-menu";
 
 const Hero = () => {
   const TEXTS = [
@@ -22,7 +23,7 @@ const Hero = () => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-5/12">
               <div className="hero-content">
-                <h1 className="mb-5 text-4xl font-bold !leading-[1.208] text-blue-500 dark:text-white sm:text-[42px] lg:text-[40px] xl:text-5xl">
+                <h1 className="mb-5 text-4xl font-bold !leading-[1.208] text-gray-50 dark:text-white sm:text-[42px] lg:text-[40px] xl:text-5xl flex flex-wrap items-center gap-3">
                   <span>Réserver un</span> rendez-vous avec votre
                   <span className="text-[#fde047]">
                     <TransitionalText className="text-4xl" TEXTS={TEXTS} />
@@ -35,7 +36,11 @@ const Hero = () => {
                 </p>
                 {/* Search Bar Here */}
 
-                <SearchBar />
+                {/* <SearchBar /> */}
+                <div className="w-full flex-1 md:flex-none">
+                  <CommandMenu />
+                </div>
+
                 {/* CTA BTNS */}
                 <ul className="flex flex-wrap items-center mt-6">
                   <li>
