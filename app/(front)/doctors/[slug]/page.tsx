@@ -7,8 +7,8 @@ import FixedBookButton from "@/components/FixedBookButton";
 
 export default function page() {
   return (
-    <div className="bg-slate-50 min-h-screen">
-      <div className="bg-white shadow-md max-w-4xl border border-gray-400 mx-auto rounded-md">
+    <div className="bg-slate-50 dark:bg-slate-800 py-8 min-h-screen">
+      <div className="bg-white dark:bg-slate-950 shadow-md max-w-4xl border border-gray-400 dark:border-slate-600 mx-auto rounded-md">
         <div className="py-8 px-6">
           <div className="flex items-center justify-between">
             <div className="">

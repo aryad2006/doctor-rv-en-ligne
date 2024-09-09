@@ -42,8 +42,10 @@ const Brands = [
 
 export default function Brand() {
   return (
-    <section className="bg-slate-100 py-10 lg:py-[60px] dark:bg-dark">
-      <h2 className="text-center pb-6">Trusted by</h2>
+    <section className="bg-slate-100 text-slate-800 py-10 lg:py-[60px]">
+      <h2 className="text-center pb-6 scroll-m-20 text-2xlfont-semibold tracking-tight">
+        Trusted by
+      </h2>
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">

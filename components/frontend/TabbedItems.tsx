@@ -1,7 +1,5 @@
 import { Tabs } from "flowbite-react";
 import { Activity, Microscope, Stethoscope, Syringe } from "lucide-react";
-import { HiAdjustments, HiClipboardList, HiUserCircle } from "react-icons/hi";
-import { MdDashboard } from "react-icons/md";
 import ServiceList from "./services/ServiceList";
 import LinkCards from "./doctors/LinkCards";
 
