@@ -2,6 +2,7 @@
 
 import {
   Bell,
+  Globe,
   Home,
   LineChart,
   Package,
@@ -58,6 +59,11 @@ export default function Sidebar() {
       name: "Réglages",
       path: "/dashboard/settings",
       icon: Settings,
+    },
+    {
+      name: "En ligne",
+      path: "/",
+      icon: Globe,
     },
   ];
   return (
