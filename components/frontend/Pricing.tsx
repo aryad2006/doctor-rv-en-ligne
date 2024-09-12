@@ -7,6 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import Link from "next/link";
 
 export default function Pricing() {
   const plans = [
@@ -21,6 +22,7 @@ export default function Pricing() {
         "Gestion de base du dossier patient",
         "Notifications par e-mail pour les rendez-vous",
       ],
+      getStarted: "/register?role=DOCTOR&plan=free",
     },
     {
       name: "Professionnel",
@@ -34,6 +36,7 @@ export default function Pricing() {
         "Rappels SMS pour rendez-vous",
         "Profil de clinique personnalisable",
       ],
+      getStarted: "/register?role=DOCTOR&plan=professional",
     },
     {
       name: "Premium",
@@ -46,6 +49,7 @@ export default function Pricing() {
         "Support client prioritaire",
         "Intégration avec les systèmes de dossiers de santé électroniques",
       ],
+      getStarted: "/register?role=DOCTOR&plan=premium",
     },
   ];
 
@@ -53,11 +57,11 @@ export default function Pricing() {
     <section className="py-14">
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
         <div className="relative max-w-xl mx-auto sm:text-center">
-          <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+          <h3 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl dark:text-slate-300 text-gray-800 sm:text-4xl">
             Pricing for all sizes
           </h3>
           <div className="mt-3 max-w-xl">
-            <p>
+            <p className="leading-7 [&:not(:first-child)]:mt-6 dark:text-slate-300">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
               efficitur consequat nunc.
             </p>
@@ -79,10 +83,10 @@ export default function Pricing() {
                 ""
               )}
               <div className="p-8 space-y-4 border-b">
-                <span className="text-indigo-600 font-medium uppercase tracking-widest">
+                <span className="text-indigo-600 font-bold uppercase tracking-widest">
                   {item.name}
                 </span>
-                <div className="text-gray-800 text-3xl font-semibold">
+                <div className="text-gray-800 text-3xl dark:text-gray-300 font-semibold">
                   {item.price} dh <span className="text-xs">par praticien</span>
                   <span className="text-xl text-gray-600 font-normal">/mo</span>
                 </div>
@@ -105,12 +109,15 @@ export default function Pricing() {
                     </Tooltip>
                   </TooltipProvider>
                 </div>
-                <button className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700">
-                  Get Started
-                </button>
+                <Link
+                  href={item.getStarted}
+                  className="px-3 py-3 block text-center rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700"
+                >
+                  S'abonner
+                </Link>
               </div>
               <ul className="p-8 space-y-3">
-                <li className="pb-2 text-gray-800 font-medium">
+                <li className="pb-2 text-gray-800 dark:text-gray-500 font-medium">
                   <p>Features</p>
                 </li>
                 {item.features.map((featureItem, i) => (

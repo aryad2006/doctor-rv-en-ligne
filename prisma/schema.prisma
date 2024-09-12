@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Account {
-  id                Int       @id @default(autoincrement())
+  id                Int       @id @default(autoincrement()) @map("_id")
   userId            Int
   type              String
   provider          String
@@ -52,6 +52,7 @@ model User {
   emailVerified DateTime?
   image         String?
   role          UserRole  @default(USER)
+  plan          String?
   password      String
   accounts      Account[]
   sessions      Session[]

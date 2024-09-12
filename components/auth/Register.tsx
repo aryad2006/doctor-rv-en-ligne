@@ -11,9 +11,15 @@ import { creerUser } from "@/actions/users";
 import { UserRole } from "@prisma/client";
 import toast from "react-hot-toast";
 import { Button } from "../ui/button";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default function RegisterWithBg({ role = "USER" }: { role?: UserRole }) {
+export default function RegisterWithBg({
+  role = "USER",
+  plan = "",
+}: {
+  role?: string | string[] | undefined;
+  plan?: string | string[] | undefined;
+}) {
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -25,12 +31,12 @@ export default function RegisterWithBg({ role = "USER" }: { role?: UserRole }) {
   async function onSubmit(data: RegisterInputProps) {
     // console.log(data);
     setIsLoading(true);
-
     data.role = role;
+    data.plan = plan;
     try {
       const user = await creerUser(data);
       if (user && user.status === 200) {
-        console.log("Utilisateur est créé avec_succès");
+        console.log("Utilisateur créé avec_succès");
         reset();
         setIsLoading(false);
         toast.success("Utilisateur créé avec succès!");

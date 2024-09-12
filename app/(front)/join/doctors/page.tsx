@@ -5,7 +5,7 @@ import CustomAccordeon, {
 import Pricing from "@/components/frontend/Pricing";
 import { Check } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+
 import React from "react";
 
 export default function page() {
@@ -113,7 +113,7 @@ export default function page() {
             <CustomButton
               title="Lister vos services"
               href="#"
-              className="bg-blue-600 hover:bg-blue-800"
+              className="bg-blue-600 hover:bg-blue-800 dark:bg-slate-200"
             />
 
             <div className="py-6">
@@ -169,7 +169,7 @@ export default function page() {
                     <CustomButton
                       title={card.linkTitle}
                       href={card.link}
-                      className="bg-blue-600 hover:bg-blue-800"
+                      className="bg-blue-600 hover:bg-blue-800 dark:bg-slate-200"
                     />
                   </div>
                 );
